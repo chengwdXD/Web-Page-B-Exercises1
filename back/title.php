@@ -1,5 +1,5 @@
 <div style="width:99%; height:87%; margin:auto; overflow:auto; border:#666 1px solid;">
-					
+
     <p class="t cent botli">網站標題管理</p>
     <form method="post" target="back" action="?do=tii">
         <table width="100%">
@@ -11,13 +11,33 @@
                     <td width="7%">刪除</td>
                     <td></td>
                 </tr>
-                <tr class="cent">
-                    <td >網站標題</td>
-                    <td >替代文字</td>
-                    <td >顯示</td>
-                    <td >刪除</td>
-                    <td></td>
-                </tr>
+                <?php
+                $rows = $Title->all();
+                foreach ($rows as $row) {
+                    $checked = ($row['sh'] == 1) ? "checked" : "";
+
+                ?>
+                    <tr >
+                        <td width="45%">
+                            <img src="./upload/<?=$row['img'];?>" style="width:300px;height:30px">
+                        </td>
+                        <td width="23%">
+                            <input type="text" name="text[]" value="<?$row['text'];?>">
+                        </td>
+                        <td width="7%">
+                            <input type="radio" name="sh" value="<?$row['id'];?>" <?=$checked;?>>
+                        </td>
+                        <td width="7%">
+                            <input type="checkbox" name="del[]" value="<?$row['id'];?>">
+                        </td>
+                        <td>
+                            <input type="button" value="更新圖片"  onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/upload_title.php?id=<?$row['id'];?>&#39;)">
+                            <input type="hidden" name="id[]" value="<?$row['id'];?>">
+                        </td>
+                    </tr>
+                <?php
+                }
+                ?>
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
@@ -27,6 +47,6 @@
                     <td class="cent"><input type="submit" value="修改確定"><input type="reset" value="重置"></td>
                 </tr>
             </tbody>
-        </table>			
+        </table>
     </form>
 </div>
