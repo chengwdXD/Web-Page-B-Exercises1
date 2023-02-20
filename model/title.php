@@ -1,5 +1,6 @@
-<form action="./api/add.php" method="psot" enctype="multipart/form-data">
 <h3 class="cent">新增標題區圖片</h3>
+<hr>
+<form action="./api/add.php" method="post" enctype="multipart/form-data">
 <hr>
 <table>
     <tr>

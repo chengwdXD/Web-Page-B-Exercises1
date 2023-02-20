@@ -1,6 +1,7 @@
 <?php
 include_once "../base.php";
 $table = $_POST['table'];
+dd($_POST);
 
 foreach ($_POST['id'] as $idx => $id) {
     if (isset($_POST['del']) && in_array($id, $_POST['del'])) {
