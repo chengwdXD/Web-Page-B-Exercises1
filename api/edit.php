@@ -31,4 +31,4 @@ foreach ($_POST['id'] as $idx => $id) {
         $$table->save($row);
     }
 }
-to('../back.php?=' . lcfirst($table));
+to('../back.php?do=' . lcfirst($table));

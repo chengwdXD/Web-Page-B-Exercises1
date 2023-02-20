@@ -1,7 +1,7 @@
 <?php
 include_once "../base.php";
 $table = $_POST['table'];
-dd($_POST);
+// dd($_POST);
 $data = [];
 if (!empty($_FILES['img']['tmp_name'])) {
     move_uploaded_file($_FILES['img']['tmp_name'], "../upload/" . $_FILES['img']['name']);
@@ -25,4 +25,4 @@ switch ($table) {
         $data['sh'] = ($table == "Title") ? 0 : 1;
 }
 $$table->save($data);
-// to('../back.php?=' . lcfirst($table));
+to('../back.php?=' . lcfirst($table));
