@@ -1,8 +1,8 @@
 <h3 class="cent">編輯次選單</h3>
 
-<form action="./api/add.php" method="post" enctype="multipart/form-data">
+<form action="./api/submenu.php" method="post" enctype="multipart/form-data">
 <hr>
-<table>
+<table id="sub">
   
     <tr>
         <td>次選單名稱:</td>
@@ -10,7 +10,7 @@
         <td>刪除:</td>
     </tr>
     <tr>
-        <td><input type="text" name="name[]"></td>
+        <td><input type="text" name="name[]" ></td>
         <td><input type="text" name="href[]"></td>
         <td><input type="checkbox" name="del[]"></td>
     </tr>
@@ -20,6 +20,17 @@
     <input type="hidden" name="table" value="Menu">
 <input type="submit" value="修改確定">
 <input type="reset" value="重製">
-<input type="button" value="更多次選單">
+<input type="button" value="更多次選單" onclick="more()">
 </div>
 </form>
+<script>
+    function more(){
+       let html=
+       `<tr>
+       <td><input type="text" name="add_name[]"></td>
+        <td><input type="text" name="add_href[]"></td>
+        <td></td>
+       </tr>`
+$("#sub").append(html);
+    }
+</script>
