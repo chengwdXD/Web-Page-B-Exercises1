@@ -12,7 +12,7 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows = $Title->all();
+                $rows = $Image->all();
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
@@ -44,9 +44,9 @@
             <tbody>
                 <tr>
                     <td width="200px">
-                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/title.php&#39;)" value="新增校園映像"></td>
+                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/image.php&#39;)" value="新增校園映像"></td>
                     <td class="cent">
-                        <input type="hidden" name="table" value="Title">
+                        <input type="hidden" name="table" value="Image">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置"></td>
                 </tr>

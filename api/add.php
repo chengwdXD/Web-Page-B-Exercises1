@@ -22,7 +22,7 @@ switch ($table) {
         if (isset($_POST['text'])) {
             $data['text'] = $_POST['text'];
         }
-        $data['sh'] = ($table == "Title") ? 0 : 1;
+        $data['sh'] = ($table == "Title")?0:1;
 }
 $$table->save($data);
 to('../back.php?=' . lcfirst($table));

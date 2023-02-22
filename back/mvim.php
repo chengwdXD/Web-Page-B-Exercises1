@@ -12,7 +12,7 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows = $Title->all();
+                $rows = $Mvim->all();
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
@@ -31,7 +31,7 @@
                         <td>
                             <input type="button" 
                             value="更新動畫"  
-                            onclick="op('#cover','#cvr','./model/upload_title.php?id=<?=$row['id'];?>')" >
+                            onclick="op('#cover','#cvr','./model/upload_mvim.php?id=<?=$row['id'];?>')" >
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                     </tr>
@@ -44,9 +44,9 @@
             <tbody>
                 <tr>
                     <td width="200px">
-                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/title.php&#39;)" value="新增動畫片"></td>
+                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/mvim.php&#39;)" value="新增動畫片"></td>
                     <td class="cent">
-                        <input type="hidden" name="table" value="Title">
+                        <input type="hidden" name="table" value="Mvim">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置"></td>
                 </tr>

@@ -10,8 +10,8 @@
     </tr>
 </table>
 <div class="cent">
-    <input type="hidden" name="table" value="Title">
-<input type="submit" value="新增">
+    <input type="submit" value="新增">
+    <input type="hidden" name="table" value="Ad">
 <input type="reset" value="重製">
 </div>
 </form>

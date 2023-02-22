@@ -12,7 +12,7 @@
             
                 </tr>
                 <?php
-                $rows = $Title->all();
+                $rows = $Ad->all();
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
@@ -41,9 +41,9 @@
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
-                    <td width="200px"><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/title.php&#39;)" value="新增動態廣告文字"></td>
+                    <td width="200px"><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/ad.php&#39;)" value="新增動態廣告文字"></td>
                     <td class="cent">
-                        <input type="hidden" name="table" value="Title">
+                        <input type="hidden" name="table" value="Ad">
                         <input type="submit" value="修改確定">
                         <input type="reset" value="重置"></td>
                 </tr>
