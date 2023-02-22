@@ -15,7 +15,7 @@
    
 </table>
 <div class="cent">
-    <input type="hidden" name="table" value="Admin">
+    <input type="hidden" name="table" value="Menu">
 <input type="submit" value="新增">
 <input type="reset" value="重製">
 </div>
