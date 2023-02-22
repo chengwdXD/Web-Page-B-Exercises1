@@ -1,40 +1,37 @@
 <?php
-include_once "base.php";
+include "base.php";
 
-//dd($_POST);
 $table=$_POST['table'];
 
-foreach($_POST['id'] as $idx =>$id){
-    if(isset($_POST['del']) && in_array($id,$_POST['del'])){
-            $$table->del($id);
-    }else{
-        $row=$$table->find($id);
+$data=[];
 
-        switch($table){
-            case "Title":
-                $row['text']=$_POST['text'][$idx];
-                $row['sh']=(isset($_POST['sh']) && $_POST['sh']==$id)?1:0;
-            break;
-            case "Admin":
-                $row['acc']=$_POST['acc'][$idx];
-                $row['pw']=$_POST['pw'][$idx];
-            break;
-            case "Menu":
-                $row['name']=$_POST['name'][$idx];
-                $row['href']=$_POST['href'][$idx];
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
-            break;
-            default:
-                if(isset($_POST['text'])){
-                    $row['text']=$_POST['text'][$idx];
-                }
-                $row['sh']=(isset($_POST['sh']) && in_array($id,$_POST['sh']))?1:0;
-
-        }
-
-        $$table->save($row);
-    }
+if(!empty($_FILES['img']['tmp_name'])){
+    move_uploaded_file($_FILES['img']['tmp_name'],"../upload/".$_FILES['img']['name']);
+    $data['img']=$_FILES['img']['name'];
 }
 
-to("../back.php?do=".lcfirst($table));
+switch($table){
+    case "Admin":
+        $data['acc']=$_POST['acc'];
+        $data['pw']=$_POST['pw'];
+    break;
+    case "Menu":
+        $data['name']=$_POST['name'];
+        $data['href']=$_POST['href'];
+        $data['sh']=1;
+        $data['parent']=0;
+    break;
+    default:
+    if(isset($_POST['text'])){
+        $data['text']=$_POST['text'];
+    }
+    $data['sh']=($table=="Title")?0:1;
+
+}
+
+$$table->save($data);
+to('../back.php?do='.lcfirst($table));
+
+
+
 ?>
