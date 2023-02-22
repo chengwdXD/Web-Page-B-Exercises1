@@ -11,11 +11,11 @@
                     <td width="10%">次選單數</td>
                     <td width="10%">顯示</td>
                     <td width="10%">刪除</td>
-                    <td><button></button></td>
+                    <td></td>
             
                 </tr>
                 <?php
-                $rows = $Menu->all();
+                $rows = $Menu->all(['parent'=>0]);
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
@@ -36,7 +36,7 @@
                             <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
                         </td>
                         <td width="7%">
-                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/submenu.php&#39;)" value="編輯次選單">
+                        <input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/submenu.php?id=<?=$row['id'];?>&#39;)" value="編輯次選單">
                         </td>
                         <td>
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
