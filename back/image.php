@@ -31,7 +31,7 @@
                         <td>
                             <input type="button" 
                             value="更換校園映像"  
-                            onclick="op('#cover','#cvr','./model/upload_title.php?id=<?=$row['id'];?>')" >
+                            onclick="op('#cover','#cvr','./model/upload_image.php?id=<?=$row['id'];?>')" >
                             <input type="hidden" name="id[]" value="<?=$row['id'];?>">
                         </td>
                     </tr>

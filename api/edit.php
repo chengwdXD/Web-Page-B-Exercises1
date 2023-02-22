@@ -14,21 +14,22 @@ foreach ($_POST['id'] as $idx => $id) {
                 $row['sh'] = (isset($_POST['sh']) && $_POST['sh'] == $id) ? 1 : 0;
                 break;
             case "Admin":
-                $row['acc'] = $_POST['acc'];
-                $row['pw'] = $_POST['pw'];
+                $row['acc'] = $_POST['acc'][$idx];
+                $row['pw'] = $_POST['pw'][$idx];
                 break;
             case "Menu":
-                $row['name'] = $_POST['name'];
-                $row['href'] = $_POST['href'];
+                $row['name'] = $_POST['name'][$idx];
+                $row['href'] = $_POST['href'][$idx];
                 $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
                 break;
             default:
                 if (isset($_POST['text'])) {
-                    $row['text'] = $_POST[$idx];
+                    $row['text'] = $_POST['text'][$idx];
                 }
                 $row['sh'] = (isset($_POST['sh']) && in_array($id, $_POST['sh'])) ? 1 : 0;
         }
         $$table->save($row);
     }
 }
+// dd($row);
 to('../back.php?do=' . lcfirst($table));

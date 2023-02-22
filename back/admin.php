@@ -14,8 +14,6 @@
                 <?php
                 $rows = $Admin->all();
                 foreach ($rows as $row) {
-              
-
                 ?>
                     <tr>
                         

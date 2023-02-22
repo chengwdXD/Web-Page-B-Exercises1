@@ -24,5 +24,7 @@ switch ($table) {
         }
         $data['sh'] = ($table == "Title")?0:1;
 }
+// dd($table);
 $$table->save($data);
+
 to('../back.php?=' . lcfirst($table));

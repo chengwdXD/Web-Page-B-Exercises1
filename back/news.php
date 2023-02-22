@@ -5,11 +5,11 @@
         <table width="100%">
             <tbody>
                 <tr class="yel">
-       
+
                     <td width="68%">最新消息</td>
                     <td width="7%">顯示</td>
                     <td width="7%">刪除</td>
-            
+
                 </tr>
                 <?php
                 $rows = $News->all();
@@ -18,20 +18,20 @@
 
                 ?>
                     <tr>
-                        
+
                         <td width="23%">
-                            <textarea name="text[]" style="width:95%;height:62px" ><?=$row['text'];?></textarea>
-                            
+                            <textarea name="text[]" style="width:95%;height:62px"><?= $row['text']; ?></textarea>
+
                         </td>
                         <td width="7%">
-                            <input type="checkbox" name="sh[]" value="<?=$row['id'];?>" <?=$checked;?>>
+                            <input type="checkbox" name="sh[]" value="<?= $row['id']; ?>" <?= $checked; ?>>
                         </td>
                         <td width="7%">
-                            <input type="checkbox" name="del[]" value="<?=$row['id'];?>">
+                            <input type="checkbox" name="del[]" value="<?= $row['id']; ?>">
                         </td>
                         <td>
-                           
-                            <input type="hidden" name="id[]" value="<?=$row['id'];?>">
+
+                            <input type="hidden" name="id[]" value="<?= $row['id']; ?>">
                         </td>
                     </tr>
                 <?php
@@ -46,7 +46,8 @@
                     <td class="cent">
                         <input type="hidden" name="table" value="News">
                         <input type="submit" value="修改確定">
-                        <input type="reset" value="重置"></td>
+                        <input type="reset" value="重置">
+                    </td>
                 </tr>
             </tbody>
         </table>
