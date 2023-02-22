@@ -12,7 +12,13 @@
 
                 </tr>
                 <?php
-                $rows = $News->all();
+                // $rows = $Image->all();
+                $all=$News->count();
+                $div=4;
+                $pages=ceil($all/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$News->all("limit $start,$div");
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
@@ -40,6 +46,30 @@
             </tbody>
         </table>
         <table style="margin-top:40px; width:70%;">
+        <div style="text-align:center;">
+            <?php
+            if (($now - 1) > 0) {
+            ?>
+                <a style="font-size: 30px;" href="?do=news&p=<?= $now - 1; ?>">&lt;&nbsp;</a>
+            <?php
+            }
+            ?>
+            <?php
+            for ($i = 1; $i <= $pages; $i++) {
+                $size = ($i == $now) ? "26px" : "18px";
+            ?>
+                <a style="font-size: <?= $size; ?>;" href="?do=news&p=<?= $i; ?>">&nbsp;<?= $i; ?>&nbsp;</a>
+            <?php
+            }
+            ?>
+            <?php
+            if (($now + 1) <= $pages) {
+            ?>
+                <a style="font-size: 30px;" href="?do=news&p=<?= $now + 1; ?>">&nbsp;&gt;</a>
+            <?php
+            }
+            ?>
+        </div>
             <tbody>
                 <tr>
                     <td width="200px"><input type="button" onclick="op(&#39;#cover&#39;,&#39;#cvr&#39;,&#39;model/news.php&#39;)" value="新增最新消息"></td>
