@@ -12,14 +12,20 @@
                     <td></td>
                 </tr>
                 <?php
-                $rows = $Image->all();
+                // $rows = $Image->all();
+                $all=$Image->count();
+                $div=3;
+                $pages=ceil($all/$div);
+                $now=$_GET['p']??1;
+                $start=($now-1)*$div;
+                $rows=$Image->all("limit $start,$div");
                 foreach ($rows as $row) {
                     $checked = ($row['sh'] == 1) ? "checked" : "";
 
                 ?>
                     <tr>
                         <td width="45%">
-                            <img src="./upload/<?=$row['img'];?>" style="width:300px;height:30px">
+                            <img src="./upload/<?=$row['img'];?>" style="width:300px;height:200px">
                         </td>
                        
                         <td width="7%">
@@ -40,6 +46,30 @@
                 ?>
             </tbody>
         </table>
+        <div style="text-align:center;">
+<?php
+if(($now-1)>0){
+?>
+<a style="font-size: 30px;" href="?do=image&p=<?=$now-1;?>">&lt;&nbsp;</a>
+<?php
+}
+?>
+<?php
+for($i=1;$i<=$pages;$i++){
+$size=($i==$now)?"26px":"18px";
+?>
+<a style="font-size: <?=$size;?>;" href="?do=image&p=<?=$i;?>">&nbsp;<?=$i;?>&nbsp;</a>
+<?php
+}
+?>
+<?php
+if(($now+1)<=$pages){
+?>
+<a style="font-size: 30px;" href="?do=image&p=<?=$now+1;?>">&nbsp;&gt;</a>
+<?php
+}
+?>
+        </div>
         <table style="margin-top:40px; width:70%;">
             <tbody>
                 <tr>
