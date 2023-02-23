@@ -24,6 +24,7 @@
 							}
 						?>
         var now = 0;
+        ww()
         if (lin.length > 1) {
             setInterval("ww()", 3000);
             now = 1;
