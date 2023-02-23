@@ -54,14 +54,21 @@ if(file_exists($file)){
 <img src="./icon/up.jpg" alt="">
 					</div>
 					<div>
-
+<?php
+$images=$Image->all(['sh'=>1]);
+foreach($images as $key =>$img){
+	echo "<div class='cent im' id='ssaa{$key}'>";
+	echo "<img src='./upload/{$img['img']}' style='width:150px;height:103px;border:2px solid orange'>";
+	echo "</div>";
+}
+?>
 					</div>
 					<div class="cent" onclick="pp(2)">
 					<img src="./icon/dn.jpg" alt="">
 					</div>
 					<script>
 						var nowpage = 0,
-							num = 0;
+							num = <?=$Image->count(['sh'=>1]);?>;
 
 						function pp(x) {
 							var s, t;
