@@ -5,7 +5,7 @@
 		foreach ($ads as $ad) {
 			echo $ad['text'];
 			echo "&nbsp;&nbsp;&nbsp;";
-		}
+		};
 		?>
 	</marquee>
 	<div style="height:32px; display:block;"></div>
@@ -21,14 +21,14 @@
 	 $rows=$News->all(['sh'=>1],"limit $start,$div");
 	 echo "<ol start='".($start+1)."'>";
 	 foreach($rows as $idx => $row){
-		echo "<li class='ssww'>";
+		echo "<li class='sswww'>";
 		echo mb_substr($row['text'],0,25);
 		echo "<span class='all' style='display:none;'>";
 		echo $row['text'];
 		echo "</span>";
-		echo "<li>";
+		echo "</li>";
 	}
-	echo "<ol>";
+	echo "</ol>";
 	?>
 	 <div style="text-align:center;">
             <?php
@@ -42,7 +42,7 @@
             for ($i = 1; $i <= $pages; $i++) {
                 $size = ($i == $now) ? "26px" : "18px";
             ?>
-                <a style="font-size: <?= $size; ?>;" href="?do=news&p=<?= $i; ?>">&nbsp;<?= $i; ?>&nbsp;</a>
+                <a style="font-size: <?= $size; ?>" href="?do=news&p=<?= $i; ?>">&nbsp;<?= $i; ?>&nbsp;</a>
             <?php
             }
             ?>
